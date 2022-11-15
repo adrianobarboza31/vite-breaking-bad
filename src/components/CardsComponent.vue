@@ -5,7 +5,7 @@
 </div>
 <div class="d-flex row  cc">
   <div class="ab-col-5 pt-3"  v-for='(item,index) in  Charachter'>
-    <div>
+    <div class="pb-3">
       <img :src="item.img" alt="">
     </div>
     <p><strong>{{item.name}}</strong></p>
@@ -42,8 +42,7 @@
     margin: 10px  15px;
   }
   img{
-   width: 150px;
-   height: 200px;
+   width: 90%;
   }
   strong{
     color: white;

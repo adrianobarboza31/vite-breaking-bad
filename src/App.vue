@@ -1,5 +1,5 @@
 <template>
-  <HeaderComponent/>
+  <HeaderComponent @filtro="getCharachters"/>
  <main>
   <CardsComponent :Charachter="charachterList"/>
  </main>
@@ -14,7 +14,8 @@ import CardsComponent from './components/CardsComponent.vue'
     data(){
       return{
         apiURL:"https://www.breakingbadapi.com/api/characters",
-        charachterList:[]
+        charachterList:[],
+        search:''
       }
     },
     components:{
@@ -23,18 +24,23 @@ import CardsComponent from './components/CardsComponent.vue'
       CardsComponent
     },
     methods:{
-      getCharachters(){
-        axios.get(this.apiURL).then(
+      getCharachters(value){
+        console.log(value)
+        const api=(value)?this.apiURL+'?category='+value:this.apiURL;
+        axios.get(api).then(
           (res)=>{
             this.charachterList=[...res.data];
             console.log(this.charachterList)
           },
           )
-      }
+         
+      },
+
     },
     created(){
       this.getCharachters()
     }
+    // characters?category=Better+Call+Saul
     // "char_id":1,"name":"Walter White","birthday":"09-07-1958","occupation":["High School Chemistry Teacher","Meth King Pin"],"img":"https://images.amcnetworks.com/amc.com/wp-content/uploads/2015/04/cast_bb_700x1000_walter-white-lg.jpg","status":"Presumed dead","nickname":"Heisenberg","appearance":[1,2,3,4,5],"portrayed":"Bryan Cranston","category":"Breaking Bad","better_call_saul_appearance":[]}
   }
 </script>

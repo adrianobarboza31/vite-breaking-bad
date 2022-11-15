@@ -2,22 +2,45 @@
   <h1 class="ps-2 pt-2">Breaking Bad Api</h1>
   <div class="container">
     <div class="dropdown pt-4">
-      <button class="btn bg-white dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Select category
-      </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-      <button class="dropdown-item" type="button">Action</button>
-      <button class="dropdown-item" type="button">Another action</button>
-      <button class="dropdown-item" type="button">Something else here</button>
-    </div>
+      <select id="search" v-model="searchs">
+  <option value="">scegli</option>
+  <option :value="value.nome" v-for="(value) in option"> {{value.url}} </option>
+</select>
+   <button @click="searchCh">clicca qui</button>
+
     </div>
   </div>
 </template>
 
 <script>
   export default {
-    
+    data(){
+      return{
+        option:[
+          {
+            nome:'Breaking Bad',
+            url:'Breaking+Bad'
+          },
+          {
+            nome:'Better Call Saul',
+            url:'Better+Call+Saul'
+          }
+          
+      ],
+        searchs:''
   }
+},
+props:{
+  search:String
+},
+methods:{
+  searchCh(){
+    this.$emit('filtro', this.searchs);
+   
+  }
+}
+  }
+
 </script>
 
 <style lang="scss" scoped>
