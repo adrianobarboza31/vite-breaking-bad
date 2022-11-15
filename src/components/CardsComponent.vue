@@ -1,7 +1,7 @@
 <template>
   <div class="container bg-white mt-4 pt-5">
 <div class="found pt-3 pb-3 ps-3">
-  <strong>Found 62 characters</strong>
+  <strong>Found {{Charachter.length}} characters</strong>
 </div>
 <div class="d-flex row  cc">
   <div class="ab-col-5 pt-3"  v-for='(item,index) in  Charachter'>
@@ -18,8 +18,9 @@
 
 <script>
   export default {
-    props:['Charachter']
-  }
+    props:['Charachter'],
+    }
+  
 </script>
 
 <style lang="scss" scoped>

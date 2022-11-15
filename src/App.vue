@@ -1,7 +1,7 @@
 <template>
   <HeaderComponent @filtro="getCharachters"/>
  <main>
-  <CardsComponent :Charachter="charachterList"/>
+  <CardsComponent :Charachter="charachterList" />
  </main>
 </template>
 
@@ -35,6 +35,7 @@ import CardsComponent from './components/CardsComponent.vue'
           )
          
       },
+     
 
     },
     created(){
